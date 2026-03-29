@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Israël, Palestiniens & États arabes — Un conflit sans fin ?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand-50: #fefdf8;
+  --sand-100: #fdf9ed;
+  --sand-200: #f5edd3;
+  --sand-300: #e8dbb0;
+  --sand-400: #d4c48a;
+  --olive-600: #5a6340;
+  --olive-700: #454d30;
+  --olive-800: #2f3520;
+  --terracotta: #c4603a;
+  --terracotta-light: #e8845e;
+  --blue-accent: #3a7cc4;
+  --blue-light: #e8f0fa;
+  --green-accent: #3a8a5c;
+  --green-light: #e5f5ec;
+  --red-accent: #c43a3a;
+  --red-light: #fae8e8;
+  --purple-accent: #7a5cc4;
+  --purple-light: #f0e8fa;
+  --amber-accent: #c49a3a;
+  --amber-light: #faf3e8;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --shadow-sm: 0 1px 3px rgba(47,53,32,0.08);
+  --shadow-md: 0 4px 16px rgba(47,53,32,0.1);
+  --shadow-lg: 0 8px 32px rgba(47,53,32,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--sand-50);
+  color: var(--olive-800);
+  line-height: 1.7;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(254,253,248,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sand-200);
+  padding: 0 2rem;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow-md); }
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--olive-700);
+  letter-spacing: -0.02em;
+}
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+}
+.nav-tab {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--olive-600);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  position: relative;
+}
+.nav-tab:hover { background: var(--sand-200); color: var(--olive-800); }
+.nav-tab.active {
+  background: var(--olive-800);
+  color: var(--sand-50);
+}
+.nav-tab .badge {
+  display: inline-block;
+  background: var(--terracotta);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ========== HERO ========== */
+.hero {
+  margin-top: 64px;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--sand-100) 0%, var(--sand-50) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, var(--sand-300) 0%, transparent 70%);
+  opacity: 0.5;
+}
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--olive-800);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--olive-600);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  font-weight: 300;
+}
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: white;
+  border: 1px solid var(--sand-300);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--olive-600);
+  font-weight: 500;
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  animation: fadeUp 0.4s ease;
+}
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== TIMELINE ========== */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+}
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--terracotta), var(--blue-accent), var(--green-accent), var(--red-accent));
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+.timeline-era {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+.timeline-era-label {
+  display: inline-block;
+  padding: 8px 24px;
+  background: var(--olive-800);
+  color: var(--sand-50);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 24px;
+  letter-spacing: 0.02em;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+  position: relative;
+  cursor: pointer;
+}
+.timeline-item:nth-child(odd) { flex-direction: row; }
+.timeline-item:nth-child(even) { flex-direction: row-reverse; }
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  transition: transform 0.2s;
+}
+.timeline-item:hover .timeline-dot { transform: translateX(-50%) scale(1.3); }
+.timeline-card {
+  width: calc(50% - 40px);
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid;
+  transition: all 0.25s;
+}
+.timeline-item:hover .timeline-card {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.timeline-item:nth-child(odd) .timeline-card { margin-right: auto; }
+.timeline-item:nth-child(even) .timeline-card { margin-left: auto; }
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.timeline-text {
+  font-size: 0.92rem;
+  color: var(--olive-600);
+  line-height: 1.6;
+  display: none;
+}
+.timeline-text.open { display: block; margin-top: 8px; }
+.timeline-expand {
+  font-size: 0.8rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-top: 6px;
+  cursor: pointer;
+}
+.timeline-expand:hover { text-decoration: underline; }
+
+/* Color coding */
+.cat-guerre .timeline-dot { background: var(--red-accent); }
+.cat-guerre .timeline-card { border-color: var(--red-accent); }
+.cat-guerre .timeline-date { color: var(--red-accent); }
+.cat-paix .timeline-dot { background: var(--green-accent); }
+.cat-paix .timeline-card { border-color: var(--green-accent); }
+.cat-paix .timeline-date { color: var(--green-accent); }
+.cat-palestinien .timeline-dot { background: var(--blue-accent); }
+.cat-palestinien .timeline-card { border-color: var(--blue-accent); }
+.cat-palestinien .timeline-date { color: var(--blue-accent); }
+.cat-contexte .timeline-dot { background: var(--amber-accent); }
+.cat-contexte .timeline-card { border-color: var(--amber-accent); }
+.cat-contexte .timeline-date { color: var(--amber-accent); }
+
+/* ========== LEGEND ========== */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 2rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--olive-600);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.legend-item:hover { background: var(--sand-100); }
+.legend-item.active-filter { border-color: var(--olive-600); background: var(--sand-200); }
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ========== SECTION HEADINGS ========== */
+.section-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.section-heading h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--olive-800);
+  margin-bottom: 0.5rem;
+}
+.section-heading p {
+  font-size: 1.05rem;
+  color: var(--olive-600);
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========== CONCEPT CARDS ========== */
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.concept-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--sand-300);
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.concept-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.concept-card.expanded { grid-column: 1 / -1; }
+.concept-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.concept-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.concept-card p {
+  font-size: 0.92rem;
+  color: var(--olive-600);
+  line-height: 1.6;
+}
+.concept-detail {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand-200);
+  font-size: 0.92rem;
+  color: var(--olive-600);
+  line-height: 1.7;
+}
+.concept-card.expanded .concept-detail { display: block; }
+
+/* ========== ACTORS SECTION ========== */
+.actors-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.actor-tab {
+  padding: 10px 20px;
+  border: 2px solid var(--sand-300);
+  background: white;
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--olive-600);
+}
+.actor-tab:hover { border-color: var(--olive-600); }
+.actor-tab.active {
+  background: var(--olive-800);
+  border-color: var(--olive-800);
+  color: white;
+}
+.actor-content {
+  display: none;
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  animation: fadeUp 0.3s ease;
+}
+.actor-content.active { display: block; }
+.actor-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.actor-content h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem;
+  color: var(--terracotta);
+}
+.actor-content p {
+  margin-bottom: 0.8rem;
+  color: var(--olive-600);
+}
+.actor-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* ========== METHODE ========== */
+.methode-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.methode-step {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s;
+}
+.methode-step:hover { box-shadow: var(--shadow-md); }
+.methode-step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.methode-step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.methode-step-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex: 1;
+}
+.methode-step-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+  color: var(--olive-600);
+}
+.methode-step.open .methode-step-arrow { transform: rotate(180deg); }
+.methode-step-body {
+  display: none;
+  padding: 0 1.5rem 1.5rem 4.5rem;
+}
+.methode-step.open .methode-step-body { display: block; }
+.methode-step-body p {
+  margin-bottom: 0.8rem;
+  color: var(--olive-600);
+  line-height: 1.7;
+}
+.methode-tip {
+  background: var(--amber-light);
+  border-left: 3px solid var(--amber-accent);
+  padding: 0.8rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+}
+.methode-danger {
+  background: var(--red-light);
+  border-left: 3px solid var(--red-accent);
+  padding: 0.8rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+}
+
+/* ========== QUIZ ========== */
+.quiz-container {
+  margin: 2rem 0;
+}
+.quiz-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+.quiz-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+.quiz-progress-dot {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--sand-200);
+  transition: background 0.3s;
+}
+.quiz-progress-dot.done { background: var(--green-accent); }
+.quiz-progress-dot.current { background: var(--terracotta); }
+.quiz-question {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quiz-option {
+  padding: 12px 16px;
+  border: 2px solid var(--sand-300);
+  border-radius: var(--radius-sm);
+  background: white;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-align: left;
+  transition: all 0.2s;
+  color: var(--olive-800);
+}
+.quiz-option:hover { border-color: var(--olive-600); background: var(--sand-100); }
+.quiz-option.correct {
+  border-color: var(--green-accent);
+  background: var(--green-light);
+  color: var(--green-accent);
+  font-weight: 600;
+}
+.quiz-option.wrong {
+  border-color: var(--red-accent);
+  background: var(--red-light);
+  color: var(--red-accent);
+}
+.quiz-option.disabled { pointer-events: none; opacity: 0.7; }
+.quiz-explanation {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--sand-100);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--olive-600);
+  line-height: 1.6;
+}
+.quiz-explanation.show { display: block; animation: fadeUp 0.3s; }
+.quiz-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.quiz-next {
+  padding: 10px 24px;
+  background: var(--olive-800);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+  transition: background 0.2s;
+}
+.quiz-next:hover { background: var(--olive-700); }
+.quiz-next.show { display: inline-block; }
+.quiz-score {
+  text-align: center;
+  padding: 3rem;
+}
+.quiz-score h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.quiz-score p { color: var(--olive-600); font-size: 1.1rem; }
+.quiz-restart {
+  margin-top: 1.5rem;
+  padding: 12px 28px;
+  background: var(--terracotta);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .timeline-line { left: 20px; }
+  .timeline-item, .timeline-item:nth-child(even) { flex-direction: row !important; }
+  .timeline-dot { left: 20px !important; }
+  .timeline-card { width: calc(100% - 50px) !important; margin-left: 50px !important; margin-right: 0 !important; }
+  .nav-tabs { gap: 2px; }
+  .nav-tab { padding: 6px 12px; font-size: 0.85rem; }
+  .nav-tab .badge { display: none; }
+  .hero h1 { font-size: 1.8rem; }
+  .concepts-grid { grid-template-columns: 1fr; }
+  .methode-step-body { padding-left: 1.5rem; }
+  .actor-content { padding: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">📜 Terminale — Histoire</div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-section="cours">Cours</button>
+      <button class="nav-tab" data-section="frise">Frise</button>
+      <button class="nav-tab" data-section="acteurs">Acteurs</button>
+      <button class="nav-tab" data-section="methode">Méthode</button>
+      <button class="nav-tab" data-section="quiz">Quiz <span class="badge">10</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-subtitle">Chapitre 4 — Point de passage</div>
+  <h1>Israël, Palestiniens &amp; États arabes :<br><em>un conflit sans fin ?</em></h1>
+  <p class="hero-desc">Comprendre la naissance de l'État d'Israël en 1948 et les étapes des conflits israélo-arabes et israélo-palestiniens, jusqu'à aujourd'hui.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">🕊️ Tentatives de paix</span>
+    <span class="hero-tag">⚔️ Guerres &amp; conflits</span>
+    <span class="hero-tag">🗺️ Territoires &amp; frontières</span>
+    <span class="hero-tag">🇺🇸 Rôle des États-Unis</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION COURS ==================== -->
+<div class="section active" id="section-cours">
+  <div class="section-heading">
+    <h2>Les grandes thématiques du conflit</h2>
+    <p>Cliquez sur chaque carte pour explorer le sujet en détail</p>
+  </div>
+
+  <div class="concepts-grid" id="concepts-grid">
+
+    <div class="concept-card" data-concept="sionisme">
+      <div class="concept-icon" style="background:var(--amber-light); color:var(--amber-accent);">🔥</div>
+      <h3>I. Le contexte : sionisme et Palestine mandataire</h3>
+      <p>Des origines du projet sioniste au mandat britannique sur la Palestine.</p>
+      <div class="concept-detail">
+        <p><strong>Le sionisme</strong> est un mouvement politique et nationaliste théorisé par Theodor Herzl dans <em>L'État des Juifs</em> (1896). Il naît dans un contexte d'antisémitisme croissant : pogroms en Russie et affaire Dreyfus en France. L'objectif est de fonder un territoire souverain pour le peuple juif en diaspora.</p>
+        <p><strong>La déclaration Balfour</strong> (1917) : le Royaume-Uni reconnaît le projet d'un « foyer national juif » en Palestine. Parallèlement, Lawrence d'Arabie encourage la révolte arabe contre l'Empire ottoman, suscitant l'espoir d'un grand État arabe.</p>
+        <p><strong>Le mandat britannique</strong> : après la chute de l'Empire ottoman (traités de Sèvres 1920, Lausanne 1923), la Palestine passe sous mandat britannique. L'immigration juive s'accélère : de 83 000 en 1922 à plus de 500 000 à la veille de la Seconde Guerre mondiale. Les tensions intercommunautaires explosent dès 1929 à Jérusalem.</p>
+        <p><strong>L'après-guerre et l'Exodus</strong> : après la Shoah, la revendication d'un État-refuge est impossible à rejeter. Mais le Royaume-Uni continue d'interdire l'immigration. Le scandale de l'Exodus (1947) — 4 500 rescapés ramenés de force en Europe — accélère le processus.</p>
+        <p><strong>Résolution 181</strong> (nov. 1947) : l'ONU propose un plan de partage avec statut international pour Jérusalem. Les Arabes le rejettent. La guerre civile éclate.</p>
+      </div>
+    </div>
+
+    <div class="concept-card" data-concept="creation">
+      <div class="concept-icon" style="background:var(--blue-light); color:var(--blue-accent);">🏛️</div>
+      <h3>II. La création de l'État d'Israël (1948)</h3>
+      <p>La proclamation de Ben Gourion et la première guerre israélo-arabe.</p>
+      <div class="concept-detail">
+        <p><strong>14 mai 1948</strong> : David Ben Gourion proclame la naissance de l'État d'Israël, reconnu immédiatement par l'URSS et les États-Unis.</p>
+        <p><strong>Les fondements de légitimité</strong> invoqués par Ben Gourion : l'ancienneté du peuple hébreu sur cette terre, le mouvement sioniste, le défrichement du désert par les colons, et le traumatisme de la Shoah.</p>
+        <p><strong>Une démocratie parlementaire</strong> : lois fondamentales, séparation des pouvoirs, égalité des citoyens. Le Parlement s'appelle la Knesset. Deux grands partis dominent : le Likoud (droite) et les Travaillistes.</p>
+        <p><strong>Première guerre israélo-arabe</strong> (1948-1949) : la Ligue arabe déclare la guerre le lendemain de la proclamation. Victoire de Tsahal. Israël contrôle 77% de la Palestine (vs. 56% prévus). Pas de traité de paix. <strong>800 000 réfugiés palestiniens</strong> fuient vers Gaza, la Jordanie, la Syrie, le Liban — c'est la <em>Nakba</em> (catastrophe).</p>
+        <p>La Cisjordanie est annexée par la Jordanie, Gaza passe sous administration égyptienne.</p>
+      </div>
+    </div>
+
+    <div class="concept-card" data-concept="guerres">
+      <div class="concept-icon" style="background:var(--red-light); color:var(--red-accent);">⚔️</div>
+      <h3>III. Les guerres israélo-arabes</h3>
+      <p>De Suez (1956) au Kippour (1973), l'escalade régionale.</p>
+      <div class="concept-detail">
+        <p><strong>Crise de Suez (1956)</strong> : Nasser nationalise le canal. Israël intervient aux côtés du Royaume-Uni et de la France.</p>
+        <p><strong>Guerre des Six Jours</strong> (juin 1967) : Nasser ferme le canal aux navires israéliens. Israël attaque l'Égypte, la Syrie et la Jordanie. Victoire écrasante en 6 jours. Israël occupe désormais le Golan, la Cisjordanie (dont Jérusalem-Est), Gaza et le Sinaï. La résolution 242 de l'ONU exige la restitution des territoires mais reste lettre morte.</p>
+        <p><strong>Guerre du Kippour</strong> (octobre 1973) : attaque surprise de l'Égypte et de la Syrie le jour de la fête juive. Victoire israélienne, statu quo territorial. <strong>Conséquence majeure</strong> : les pays de l'OPEP quadruplent le prix du pétrole pour sanctionner le soutien américain à Israël — le conflit prend une dimension internationale et économique.</p>
+      </div>
+    </div>
+
+    <div class="concept-card" data-concept="paix">
+      <div class="concept-icon" style="background:var(--green-light); color:var(--green-accent);">🕊️</div>
+      <h3>IV. Les tentatives de paix</h3>
+      <p>De Camp David (1978) aux accords d'Oslo (1993), espoirs et échecs.</p>
+      <div class="concept-detail">
+        <p><strong>Accords de Camp David (1978)</strong> : Anouar el-Sadate (successeur de Nasser) visite Israël en 1977 et parle devant la Knesset. Négociations avec Menahem Begin sous la médiation de Jimmy Carter. L'Égypte récupère le Sinaï en échange de la reconnaissance d'Israël. <strong>Conséquence</strong> : l'Égypte est exclue de la Ligue arabe et Sadate est assassiné par des djihadistes en 1981.</p>
+        <p><strong>Accords d'Oslo (1993)</strong> : première grande tentative de rapprochement Israël-Palestiniens. L'OLP et Israël se reconnaissent mutuellement (poignée de main Arafat-Rabin sous l'égide de Clinton). Création d'une Autorité palestinienne en Cisjordanie et à Gaza. Territoires divisés en zones A (autonomie palestinienne), B (partielle) et C (contrôle israélien).</p>
+        <p><strong>Échec</strong> : rejet par les extrémistes des deux camps. Rabin est assassiné par un extrémiste juif en 1995. Le Hamas multiplie les attentats. Les sujets épineux (Jérusalem, réfugiés, colonies) ne sont jamais réglés.</p>
+      </div>
+    </div>
+
+    <div class="concept-card" data-concept="palestiniens">
+      <div class="concept-icon" style="background:var(--purple-light); color:var(--purple-accent);">✊</div>
+      <h3>V. La question palestinienne</h3>
+      <p>De l'OLP au Hamas, radicalisation et impasse.</p>
+      <div class="concept-detail">
+        <p><strong>L'OLP</strong> (1964) : organisation laïque et nationaliste, dominée par le Fatah de Yasser Arafat à partir de 1969. Actions marquantes : attentat de Munich (1972) lors des JO, destiné à faire connaître la cause palestinienne. Discours d'Arafat à l'ONU en 1974.</p>
+        <p><strong>Première Intifada</strong> (1987) : « guerre des pierres » dans les territoires occupés. C'est dans ce contexte que naît le <strong>Hamas</strong>, mouvement islamiste issu des Frères musulmans, qui prône la lutte armée pour la destruction d'Israël.</p>
+        <p><strong>Le mur de séparation</strong> (à partir de 2002) : Ariel Sharon fait construire une barrière de 790 km, en partie à l'intérieur des territoires palestiniens. L'objectif affiché est sécuritaire, mais il protège aussi les colonies juives.</p>
+        <p><strong>Colonisation croissante</strong> : 110 000 colons en 1993, 280 000 en 2010. L'Autorité palestinienne, affaiblie et discréditée, ne contrôle que 40% du territoire en zones éparses.</p>
+        <p><strong>Avancée diplomatique</strong> : en 2012, l'Autorité palestinienne obtient le statut d'observateur à l'ONU.</p>
+      </div>
+    </div>
+
+    <div class="concept-card" data-concept="recent">
+      <div class="concept-icon" style="background:var(--red-light); color:var(--red-accent);">📡</div>
+      <h3>VI. Période récente (2017–2026)</h3>
+      <p>Les plans Trump, le 7 octobre 2023 et la guerre de Gaza.</p>
+      <div class="concept-detail">
+        <p><strong>2017</strong> : Trump reconnaît Jérusalem comme capitale d'Israël et y transfère l'ambassade américaine — rupture avec la politique américaine traditionnelle.</p>
+        <p><strong>Janvier 2020</strong> : plan de paix Trump prévoyant l'annexion des colonies de Cisjordanie et de la vallée du Jourdain, un État palestinien démilitarisé réduit à des zones discontinues. L'Autorité palestinienne n'a pas été consultée.</p>
+        <p><strong>Accords d'Abraham (2020)</strong> : normalisation des relations entre Israël et les Émirats arabes unis, Bahreïn, le Soudan, puis le Maroc. Ces accords visent surtout à contrer l'Iran, au prix de l'abandon de la cause palestinienne par ces États.</p>
+        <p><strong>7 octobre 2023</strong> : attaque terroriste du Hamas contre le territoire israélien (1 200 morts, de nombreux otages civils). Riposte massive d'Israël sur Gaza. En janvier 2025 : environ 50 000 victimes civiles à Gaza.</p>
+        <p><strong>2026</strong> : le conflit s'étend au-delà des territoires occupés vers le Liban et l'Iran.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== SECTION FRISE ==================== -->
+<div class="section" id="section-frise">
+  <div class="section-heading">
+    <h2>Frise chronologique interactive</h2>
+    <p>Cliquez sur chaque événement pour en savoir plus. Filtrez par catégorie.</p>
+  </div>
+
+  <div class="legend" id="legend">
+    <div class="legend-item" data-filter="all">
+      <div class="legend-dot" style="background:var(--olive-800);"></div> Tout afficher
+    </div>
+    <div class="legend-item" data-filter="guerre">
+      <div class="legend-dot" style="background:var(--red-accent);"></div> Guerres &amp; conflits
+    </div>
+    <div class="legend-item" data-filter="paix">
+      <div class="legend-dot" style="background:var(--green-accent);"></div> Tentatives de paix
+    </div>
+    <div class="legend-item" data-filter="palestinien">
+      <div class="legend-dot" style="background:var(--blue-accent);"></div> Question palestinienne
+    </div>
+    <div class="legend-item" data-filter="contexte">
+      <div class="legend-dot" style="background:var(--amber-accent);"></div> Contexte &amp; diplomatie
+    </div>
+  </div>
+
+  <div class="timeline-container" id="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-era"><span class="timeline-era-label">🏗️ Origines (1917–1948)</span></div>
+
+    <div class="timeline-item cat-contexte" data-cat="contexte">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1917</div>
+        <div class="timeline-title">Déclaration Balfour</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Le Royaume-Uni reconnaît le projet d'un « foyer national juif » en Palestine, tout en promettant aux Arabes un soutien à leur indépendance. Des promesses contradictoires qui pèseront lourd.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-contexte" data-cat="contexte">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Novembre 1947</div>
+        <div class="timeline-title">Plan de partage de l'ONU (Rés. 181)</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">L'ONU propose un partage de la Palestine en deux États (juif et arabe) avec un statut international pour Jérusalem. Accepté par les sionistes, rejeté par les Arabes. La guerre civile éclate immédiatement.</div>
+      </div>
+    </div>
+
+    <div class="timeline-era"><span class="timeline-era-label">⚔️ Guerres israélo-arabes (1948–1973)</span></div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Mai 1948</div>
+        <div class="timeline-title">Proclamation de l'État d'Israël & 1ʳᵉ guerre</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Ben Gourion proclame l'indépendance le 14 mai. La Ligue arabe déclare la guerre le lendemain. Victoire israélienne : le territoire passe de 56% à 77% de la Palestine. 800 000 réfugiés palestiniens : c'est la Nakba.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Octobre 1956</div>
+        <div class="timeline-title">Crise de Suez</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Israël intervient sur le canal de Suez aux côtés du Royaume-Uni et de la France après la nationalisation du canal par Nasser.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-palestinien" data-cat="palestinien">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1964</div>
+        <div class="timeline-title">Création de l'OLP</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">L'Organisation de Libération de la Palestine est créée. Organisation laïque et nationaliste, elle sera dominée par le Fatah de Yasser Arafat à partir de 1969.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Juin 1967</div>
+        <div class="timeline-title">Guerre des Six Jours</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Victoire écrasante d'Israël en 6 jours. Occupation du Golan, de la Cisjordanie (dont Jérusalem-Est), de Gaza et du Sinaï. La résolution 242 de l'ONU exige la restitution des territoires — elle reste lettre morte.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Octobre 1973</div>
+        <div class="timeline-title">Guerre du Kippour</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Attaque surprise de l'Égypte et de la Syrie. Victoire israélienne. L'OPEP quadruple le prix du pétrole : le conflit prend une dimension économique mondiale (choc pétrolier).</div>
+      </div>
+    </div>
+
+    <div class="timeline-era"><span class="timeline-era-label">🕊️ Tentatives de paix (1978–1995)</span></div>
+
+    <div class="timeline-item cat-paix" data-cat="paix">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1978</div>
+        <div class="timeline-title">Accords de Camp David</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Premier accord de paix entre Israël et un pays arabe. L'Égypte récupère le Sinaï en échange de la reconnaissance d'Israël. Sadate sera assassiné en 1981, l'Égypte exclue de la Ligue arabe.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Juin 1982</div>
+        <div class="timeline-title">Intervention au Liban</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Israël envahit le Liban. L'OLP doit s'exiler à Tunis. Massacres de Sabra et Chatila dans les camps de réfugiés palestiniens.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-palestinien" data-cat="palestinien">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1987</div>
+        <div class="timeline-title">Première Intifada & naissance du Hamas</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">La « guerre des pierres » dans les territoires occupés. Le Hamas, mouvement islamiste issu des Frères musulmans, naît dans ce contexte de révolte populaire.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-paix" data-cat="paix">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1993</div>
+        <div class="timeline-title">Accords d'Oslo</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">L'OLP et Israël se reconnaissent mutuellement. Création de l'Autorité palestinienne. Territoires divisés en zones A, B, C. Mais les sujets épineux (Jérusalem, réfugiés, colonies) sont repoussés.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">1995</div>
+        <div class="timeline-title">Assassinat de Rabin</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Yitzhak Rabin est assassiné par un extrémiste juif opposé aux accords d'Oslo. Le processus de paix s'enraye. Les attentats meurtriers se multiplient en Israël.</div>
+      </div>
+    </div>
+
+    <div class="timeline-era"><span class="timeline-era-label">🔒 Impasse & escalade (2000–2026)</span></div>
+
+    <div class="timeline-item cat-palestinien" data-cat="palestinien">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2002</div>
+        <div class="timeline-title">Construction du mur de séparation</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Sharon lance la construction d'une barrière de 790 km, en partie à l'intérieur des territoires palestiniens de Cisjordanie. Points de passage soumis à des restrictions draconiennes.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-palestinien" data-cat="palestinien">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2006</div>
+        <div class="timeline-title">Le Hamas prend Gaza</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Le Hamas remporte les élections à Gaza. Rupture avec l'Autorité palestinienne de Mahmoud Abbas, confinée à la Cisjordanie. Division interne du camp palestinien.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-contexte" data-cat="contexte">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Décembre 2017</div>
+        <div class="timeline-title">Trump reconnaît Jérusalem capitale d'Israël</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Rupture diplomatique majeure : les États-Unis reconnaissent Jérusalem comme capitale d'Israël et y transfèrent leur ambassade, rompant avec des décennies de neutralité américaine sur ce sujet.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-paix" data-cat="paix">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">Août 2020</div>
+        <div class="timeline-title">Accords d'Abraham</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Normalisation entre Israël et les Émirats arabes unis, puis Bahreïn, le Soudan et le Maroc. Objectif : contrer l'Iran. Mais ces accords se font au prix de l'abandon de la cause palestinienne.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item cat-guerre" data-cat="guerre">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">7 Octobre 2023</div>
+        <div class="timeline-title">Attaque du Hamas & guerre de Gaza</div>
+        <div class="timeline-expand">+ détails</div>
+        <div class="timeline-text">Attaque terroriste du Hamas : 1 200 morts, de nombreux otages civils. Riposte massive d'Israël sur Gaza. En 2025, environ 50 000 victimes civiles à Gaza. Le conflit s'étend régionalement.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== SECTION ACTEURS ==================== -->
+<div class="section" id="section-acteurs">
+  <div class="section-heading">
+    <h2>Les acteurs clés du conflit</h2>
+    <p>Explorez le rôle de chaque acteur majeur</p>
+  </div>
+
+  <div class="actors-tabs" id="actors-tabs">
+    <button class="actor-tab active" data-actor="israel">🇮🇱 Israël</button>
+    <button class="actor-tab" data-actor="palestiniens">🇵🇸 Palestiniens</button>
+    <button class="actor-tab" data-actor="arabes">🌍 États arabes</button>
+    <button class="actor-tab" data-actor="usa">🇺🇸 États-Unis</button>
+    <button class="actor-tab" data-actor="onu">🇺🇳 ONU</button>
+  </div>
+
+  <div class="actor-content active" id="actor-israel">
+    <h3>🇮🇱 L'État d'Israël</h3>
+    <span class="actor-badge" style="background:var(--blue-light);color:var(--blue-accent);">Démocratie parlementaire</span>
+    <span class="actor-badge" style="background:var(--green-light);color:var(--green-accent);">Knesset</span>
+    <span class="actor-badge" style="background:var(--amber-light);color:var(--amber-accent);">Tsahal</span>
+    <h4>Fondation et légitimité</h4>
+    <p>Proclamé le 14 mai 1948 par Ben Gourion. La légitimité invoquée repose sur l'ancienneté du peuple hébreu sur cette terre, le mouvement sioniste, le défrichement du désert et le traumatisme de la Shoah.</p>
+    <h4>Politique territoriale</h4>
+    <p>Israël a consolidé son territoire par la guerre (1948-49, 1967) et la colonisation progressive de la Cisjordanie. Le mur de séparation (2002) et la poursuite des implantations rendent de plus en plus difficile la création d'un État palestinien viable.</p>
+    <h4>Figures clés</h4>
+    <p>David Ben Gourion (fondateur), Menahem Begin (Camp David), Yitzhak Rabin (Oslo, assassiné en 1995), Ariel Sharon (mur de séparation), Benjamin Netanyahou (politique sécuritaire et pro-colonisation).</p>
+  </div>
+
+  <div class="actor-content" id="actor-palestiniens">
+    <h3>🇵🇸 Les Palestiniens</h3>
+    <span class="actor-badge" style="background:var(--blue-light);color:var(--blue-accent);">OLP / Fatah</span>
+    <span class="actor-badge" style="background:var(--red-light);color:var(--red-accent);">Hamas</span>
+    <span class="actor-badge" style="background:var(--purple-light);color:var(--purple-accent);">Autorité palestinienne</span>
+    <h4>L'OLP et le Fatah (mouvement laïque)</h4>
+    <p>Créée en 1964, l'OLP est une organisation laïque et nationaliste. Dominée par le Fatah d'Arafat dès 1969. Recours au terrorisme (Munich 1972) puis à la diplomatie (discours ONU 1974, Oslo 1993). Aujourd'hui représentée par Mahmoud Abbas, mais affaiblie et discréditée.</p>
+    <h4>Le Hamas (mouvement islamiste)</h4>
+    <p>Né en 1987 lors de la première Intifada, issu des Frères musulmans. Prône la destruction d'Israël et l'instauration d'un État islamique. Contrôle Gaza depuis 2006. Soutenu par l'Iran, la Syrie et le Hezbollah. Responsable de l'attaque du 7 octobre 2023.</p>
+    <h4>Une division interne fatale</h4>
+    <p>Depuis 2006, le camp palestinien est divisé entre le Fatah (Cisjordanie) et le Hamas (Gaza), ce qui affaiblit considérablement la cause palestinienne sur la scène internationale.</p>
+  </div>
+
+  <div class="actor-content" id="actor-arabes">
+    <h3>🌍 Les États arabes</h3>
+    <span class="actor-badge" style="background:var(--amber-light);color:var(--amber-accent);">Ligue arabe (1945)</span>
+    <span class="actor-badge" style="background:var(--green-light);color:var(--green-accent);">OPEP</span>
+    <h4>Du front commun à la fragmentation</h4>
+    <p>Au départ unis contre Israël au sein de la Ligue arabe (guerres de 1948, 1967, 1973), les États arabes se sont progressivement divisés. L'Égypte est le premier pays arabe à signer la paix avec Israël (1978), suivie de la Jordanie (1994).</p>
+    <h4>L'arme du pétrole</h4>
+    <p>Lors de la guerre du Kippour (1973), les pays de l'OPEP utilisent le pétrole comme arme diplomatique en quadruplant les prix, donnant au conflit une dimension économique mondiale.</p>
+    <h4>Les Accords d'Abraham (2020)</h4>
+    <p>Normalisation entre Israël et les Émirats, Bahreïn, le Soudan, le Maroc. Ces accords visent à contrer l'Iran mais représentent un abandon de fait de la cause palestinienne par ces États.</p>
+  </div>
+
+  <div class="actor-content" id="actor-usa">
+    <h3>🇺🇸 Les États-Unis</h3>
+    <span class="actor-badge" style="background:var(--blue-light);color:var(--blue-accent);">Allié d'Israël</span>
+    <span class="actor-badge" style="background:var(--green-light);color:var(--green-accent);">Médiateur</span>
+    <h4>Un rôle qui a évolué</h4>
+    <p>Les États-Unis ont joué un double rôle : allié inconditionnel d'Israël (soutien militaire et diplomatique) et médiateur dans les tentatives de paix (Carter à Camp David, Clinton à Oslo).</p>
+    <h4>Obama : tentative de rééquilibrage</h4>
+    <p>Obama relance l'idée d'un État palestinien et condamne les colonies (discours du Caire, 2009), mais sans résultats concrets face au refus israélien.</p>
+    <h4>Trump : rupture pro-israélienne</h4>
+    <p>Reconnaissance de Jérusalem comme capitale (2017), plan de paix très favorable à Israël (2020), accords d'Abraham. La position de médiateur impartial est abandonnée.</p>
+  </div>
+
+  <div class="actor-content" id="actor-onu">
+    <h3>🇺🇳 L'ONU</h3>
+    <span class="actor-badge" style="background:var(--purple-light);color:var(--purple-accent);">Résolutions</span>
+    <span class="actor-badge" style="background:var(--amber-light);color:var(--amber-accent);">UNRWA</span>
+    <h4>Des résolutions sans effet</h4>
+    <p>L'ONU a adopté de nombreuses résolutions (181 en 1947, 242 en 1967) mais n'a jamais eu les moyens de les imposer. Le veto américain au Conseil de sécurité protège régulièrement Israël.</p>
+    <h4>Statut d'observateur</h4>
+    <p>En 2012, l'Autorité palestinienne obtient le statut d'État observateur non-membre — une victoire diplomatique symbolique mais sans effet concret sur le terrain.</p>
+  </div>
+</div>
+
+<!-- ==================== SECTION METHODE ==================== -->
+<div class="section" id="section-methode">
+  <div class="section-heading">
+    <h2>Méthode : Analyse de document(s)</h2>
+    <p>L'épreuve de terminale, étape par étape</p>
+  </div>
+
+  <div class="methode-steps" id="methode-steps">
+
+    <div class="methode-step open">
+      <div class="methode-step-header">
+        <div class="methode-step-num" style="background:var(--terracotta);">1</div>
+        <div class="methode-step-title">Au brouillon : lire, identifier, classer (≈ 20 min)</div>
+        <div class="methode-step-arrow">▼</div>
+      </div>
+      <div class="methode-step-body">
+        <p><strong>Lire attentivement</strong> le ou les documents. Ne pas se précipiter.</p>
+        <p><strong>Identifier le document</strong> avec la méthode « QQCOQP » :</p>
+        <p>🔹 <strong>Quoi ?</strong> Nature du document (discours, article, carte, photo…)<br>
+        🔹 <strong>Qui ?</strong> Auteur, commanditaire, destinataires<br>
+        🔹 <strong>Quand ?</strong> Date de création ET date de publication<br>
+        🔹 <strong>Où ?</strong> Lieu de création, lieu de conservation<br>
+        🔹 <strong>Comment ?</strong> Description rapide (image, procédés, ton…)<br>
+        🔹 <strong>Pourquoi ?</strong> Intentions de l'auteur — mène vers la problématique</p>
+        <p><strong>Analyser la consigne</strong> pour dégager un plan en 2 ou 3 parties.</p>
+        <p><strong>Classer les citations</strong> par surlignage (une couleur par partie) et leur associer des connaissances personnelles.</p>
+        <div class="methode-tip">💡 <strong>Astuce :</strong> Utilisez un tableau à 3 colonnes : Plan | Citations du document | Connaissances personnelles</div>
+      </div>
+    </div>
+
+    <div class="methode-step">
+      <div class="methode-step-header">
+        <div class="methode-step-num" style="background:var(--blue-accent);">2</div>
+        <div class="methode-step-title">L'introduction (≈ 15 lignes)</div>
+        <div class="methode-step-arrow">▼</div>
+      </div>
+      <div class="methode-step-body">
+        <p>L'introduction comporte <strong>3 éléments obligatoires</strong> :</p>
+        <p>1️⃣ <strong>Présentation complète du document</strong> : nature, auteur (+ biographie courte), date, source, contexte historique, thème/résumé, intention de l'auteur.</p>
+        <p>2️⃣ <strong>Problématique</strong> : une question formulée à partir de la consigne, qui doit évoquer le document. Exemple : <em>« Comment ce texte nous renseigne-t-il sur… ? »</em></p>
+        <p>3️⃣ <strong>Annonce du plan</strong> : en 2 ou 3 parties maximum.</p>
+        <div class="methode-tip">💡 Chaque élément = un paragraphe distinct (saut de ligne entre chaque).</div>
+      </div>
+    </div>
+
+    <div class="methode-step">
+      <div class="methode-step-header">
+        <div class="methode-step-num" style="background:var(--green-accent);">3</div>
+        <div class="methode-step-title">Le développement (≈ 1h)</div>
+        <div class="methode-step-arrow">▼</div>
+      </div>
+      <div class="methode-step-body">
+        <p>Chaque grande partie suit la même structure :</p>
+        <p>🔸 <strong>Annonce du thème</strong> de la partie (phrase d'amorce)<br>
+        🔸 <strong>Sous-partie 1</strong> : idée → citation du document (entre guillemets + numéro de ligne) → explication avec vos connaissances<br>
+        🔸 <strong>Sous-partie 2</strong> : même structure<br>
+        🔸 <strong>Bilan rapide</strong> : atouts et limites du document pour traiter cette partie du sujet</p>
+        <p>Si 2 documents : les <strong>confronter</strong> (complémentaires ? contradictoires ?) au sein de chaque partie.</p>
+        <div class="methode-danger">⚠️ <strong>Piège n°1 — Paraphrase :</strong> reformuler le document sans l'enrichir du cours = hors sujet !</div>
+        <div class="methode-danger">⚠️ <strong>Piège n°2 — Oubli du document :</strong> réciter le cours sans citer/décrire le document = hors sujet !</div>
+        <div class="methode-tip">💡 Le bon équilibre : toujours partir du document, puis enrichir avec vos connaissances. Citation → explication → critique.</div>
+      </div>
+    </div>
+
+    <div class="methode-step">
+      <div class="methode-step-header">
+        <div class="methode-step-num" style="background:var(--purple-accent);">4</div>
+        <div class="methode-step-title">La conclusion & la critique</div>
+        <div class="methode-step-arrow">▼</div>
+      </div>
+      <div class="methode-step-body">
+        <p><strong>Conclusion</strong> : 1 à 2 phrases synthétiques expliquant en quoi le document permet de répondre à la consigne (= bilan global).</p>
+        <p><strong>Critiquer un document</strong>, c'est se poser ces questions :</p>
+        <p>🔍 Le document couvre-t-il tout le sujet ? Quels aspects manquent ? Oublis volontaires ?<br>
+        🔍 Est-il objectif ou subjectif ? Écrit « à chaud » ou avec du recul ?<br>
+        🔍 Ment-il ? Si oui, pourquoi ?</p>
+        <div class="methode-danger">⚠️ <strong>Autres pièges :</strong> séparer les 2 documents dans des parties différentes, écrire « je », utiliser le futur, ne pas aérer sa copie, énumérer au lieu de démontrer.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== SECTION QUIZ ==================== -->
+<div class="section" id="section-quiz">
+  <div class="section-heading">
+    <h2>Teste tes connaissances</h2>
+    <p>10 questions pour vérifier ta maîtrise du chapitre</p>
+  </div>
+  <div class="quiz-container" id="quiz-container"></div>
+</div>
+
+<script>
+// ========== NAV ==========
+const navTabs = document.querySelectorAll('.nav-tab');
+const sections = document.querySelectorAll('.section');
+const navbar = document.getElementById('navbar');
+
+navTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    navTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + tab.dataset.section).classList.add('active');
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  });
+});
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ========== CONCEPT CARDS ==========
+document.querySelectorAll('.concept-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const wasExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.concept-card').forEach(c => c.classList.remove('expanded'));
+    if (!wasExpanded) card.classList.add('expanded');
+  });
+});
+
+// ========== TIMELINE ==========
+document.querySelectorAll('.timeline-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const text = item.querySelector('.timeline-text');
+    const expand = item.querySelector('.timeline-expand');
+    const isOpen = text.classList.contains('open');
+    text.classList.toggle('open');
+    expand.textContent = isOpen ? '+ détails' : '− fermer';
+  });
+});
+
+// Timeline filter
+document.querySelectorAll('.legend-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.legend-item').forEach(i => i.classList.remove('active-filter'));
+    item.classList.add('active-filter');
+    const filter = item.dataset.filter;
+    document.querySelectorAll('.timeline-item').forEach(ti => {
+      if (filter === 'all' || ti.dataset.cat === filter) {
+        ti.style.display = '';
+      } else {
+        ti.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ========== ACTORS ==========
+document.querySelectorAll('.actor-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.actor-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.actor-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('actor-' + tab.dataset.actor).classList.add('active');
+  });
+});
+
+// ========== METHODE ==========
+document.querySelectorAll('.methode-step-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.parentElement.classList.toggle('open');
+  });
+});
+
+// ========== QUIZ ==========
+const quizData = [
+  {
+    q: "Quel mouvement politique théorisé par Herzl vise à fonder un État juif ?",
+    opts: ["Le panarabisme", "Le sionisme", "Le baasisme", "Le communisme"],
+    correct: 1,
+    expl: "Le sionisme, théorisé par Theodor Herzl dans L'État des Juifs (1896), est un mouvement politique et nationaliste dont l'objectif est de fonder un territoire souverain pour le peuple juif en diaspora."
+  },
+  {
+    q: "Quelle résolution de l'ONU propose le plan de partage de la Palestine en 1947 ?",
+    opts: ["Résolution 242", "Résolution 181", "Résolution 338", "Résolution 194"],
+    correct: 1,
+    expl: "La résolution 181 de novembre 1947 met fin au mandat britannique et établit un plan de partage en deux États avec un statut international pour Jérusalem."
+  },
+  {
+    q: "Quel pourcentage de la Palestine Israël contrôle-t-il après la guerre de 1948-1949 ?",
+    opts: ["56%", "67%", "77%", "90%"],
+    correct: 2,
+    expl: "Après la première guerre israélo-arabe, Israël contrôle 77% de l'ancienne Palestine (contre 56% prévus par le plan de partage)."
+  },
+  {
+    q: "Comment appelle-t-on la catastrophe de 1948 pour les Palestiniens ?",
+    opts: ["L'Intifada", "La Nakba", "Le Djihad", "L'Infitah"],
+    correct: 1,
+    expl: "La Nakba (« catastrophe » en arabe) désigne l'exode de 800 000 réfugiés palestiniens lors de la première guerre israélo-arabe de 1948-1949."
+  },
+  {
+    q: "Quels territoires Israël occupe-t-il après la guerre des Six Jours (1967) ?",
+    opts: ["Le Sinaï uniquement", "Le Golan, la Cisjordanie, Gaza et le Sinaï", "La Cisjordanie et Gaza uniquement", "Le Liban et la Syrie"],
+    correct: 1,
+    expl: "Après la guerre des Six Jours, Israël occupe le Golan (syrien), la Cisjordanie dont Jérusalem-Est (jordanien), la bande de Gaza et le Sinaï (égyptien)."
+  },
+  {
+    q: "Quelle conséquence économique mondiale a la guerre du Kippour (1973) ?",
+    opts: ["Embargo sur les armes", "Premier choc pétrolier (prix ×4)", "Création de l'euro", "Effondrement du dollar"],
+    correct: 1,
+    expl: "Les pays de l'OPEP quadruplent le prix du pétrole pour sanctionner le soutien américain à Israël, provoquant le premier choc pétrolier mondial."
+  },
+  {
+    q: "Quel est le premier pays arabe à signer un accord de paix avec Israël ?",
+    opts: ["La Jordanie", "L'Arabie Saoudite", "L'Égypte", "Les Émirats arabes unis"],
+    correct: 2,
+    expl: "L'Égypte signe les accords de Camp David en 1978 sous la médiation de Jimmy Carter. C'est le premier accord de paix entre Israël et un pays arabe."
+  },
+  {
+    q: "Que prévoient les accords d'Oslo (1993) ?",
+    opts: ["L'annexion de Gaza par Israël", "La reconnaissance mutuelle OLP-Israël et la création d'une Autorité palestinienne", "Le retrait total d'Israël de Cisjordanie", "La destruction du mur de séparation"],
+    correct: 1,
+    expl: "Les accords d'Oslo prévoient la reconnaissance mutuelle entre l'OLP et Israël, et la création d'une Autorité palestinienne en Cisjordanie et à Gaza, avec un transfert progressif de territoires."
+  },
+  {
+    q: "En quelle année Trump reconnaît-il Jérusalem comme capitale d'Israël ?",
+    opts: ["2015", "2017", "2019", "2020"],
+    correct: 1,
+    expl: "En décembre 2017, le président Trump reconnaît Jérusalem comme capitale d'Israël et annonce le transfert de l'ambassade américaine, rompant avec des décennies de politique américaine."
+  },
+  {
+    q: "Dans une analyse de document, quel est le piège principal à éviter ?",
+    opts: ["Citer trop le document", "La paraphrase (reformuler sans enrichir du cours)", "Faire une conclusion trop longue", "Utiliser des couleurs"],
+    correct: 1,
+    expl: "La paraphrase consiste à reformuler le document sans l'enrichir ni l'éclairer à partir du cours. L'autre piège symétrique est l'oubli du document (réciter le cours sans citer le texte)."
+  }
+];
+
+let currentQ = 0;
+let score = 0;
+let answered = false;
+
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  if (currentQ >= quizData.length) {
+    container.innerHTML = `
+      <div class="quiz-card">
+        <div class="quiz-score">
+          <h3>${score} / ${quizData.length}</h3>
+          <p>${score >= 8 ? '🎉 Excellent ! Tu maîtrises le chapitre.' : score >= 5 ? '👍 Pas mal ! Relis les parties où tu as hésité.' : '📖 Continue à réviser, tu vas y arriver !'}</p>
+          <button class="quiz-restart" onclick="currentQ=0;score=0;renderQuiz();">Recommencer</button>
+        </div>
+      </div>`;
+    return;
+  }
+  const q = quizData[currentQ];
+  answered = false;
+  container.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-progress">
+        ${quizData.map((_, i) => `<div class="quiz-progress-dot ${i < currentQ ? 'done' : i === currentQ ? 'current' : ''}"></div>`).join('')}
+      </div>
+      <div class="quiz-question">${currentQ + 1}. ${q.q}</div>
+      <div class="quiz-options">
+        ${q.opts.map((opt, i) => `<button class="quiz-option" data-idx="${i}">${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-explanation" id="quiz-expl">${q.expl}</div>
+      <div class="quiz-nav">
+        <button class="quiz-next" id="quiz-next">Suivant →</button>
+      </div>
+    </div>`;
+
+  container.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (answered) return;
+      answered = true;
+      const idx = parseInt(btn.dataset.idx);
+      if (idx === q.correct) {
+        btn.classList.add('correct');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        container.querySelectorAll('.quiz-option')[q.correct].classList.add('correct');
+      }
+      container.querySelectorAll('.quiz-option').forEach(o => o.classList.add('disabled'));
+      document.getElementById('quiz-expl').classList.add('show');
+      document.getElementById('quiz-next').classList.add('show');
+    });
+  });
+
+  document.getElementById('quiz-next').addEventListener('click', () => {
+    currentQ++;
+    renderQuiz();
+  });
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
